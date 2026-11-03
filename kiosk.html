@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Interactive Kiosk | ABYSSARIA</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                ABYSSARIA.
+            </a>
+
+            <nav class="main-nav"
+                 aria-label="Main navigation">
+
+                <a href="index.html">Founder</a>
+
+                <a href="kiosk.html"
+                   aria-current="page">
+                    Interactive Kiosk
+                </a>
+
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Page Introduction -->
+        <section class="kiosk-intro">
+            <div class="container">
+
+                <span class="eyebrow">
+                    ABYSSARIA LOYALTY PROGRAMME
+                </span>
+
+                <h1>Interactive Kiosk</h1>
+
+                <p>
+                    Calculate your membership discount
+                    and discover your final expedition price.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Main Calculator -->
+        <section class="content-section">
+            <div class="container kiosk-layout">
+
+                <!-- Left: Calculator Form -->
+                <div class="calculator-card">
+
+                    <h2>Loyalty Discount Calculator</h2>
+
+                    <p>
+                        Enter your details and select your
+                        membership to calculate your savings.
+                    </p>
+
+                    <form id="loyaltyForm" novalidate>
+
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label for="customerName">
+                                Full Name *
+                            </label>
+
+                            <input type="text"
+                                   id="customerName"
+                                   name="customerName"
+                                   placeholder="Enter your full name"
+                                   autocomplete="name"
+                                   maxlength="60"
+                                   aria-describedby="nameError"
+                                   required>
+
+                            <p class="field-error"
+                               id="nameError"></p>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="customerEmail">
+                                Email Address *
+                            </label>
+
+                            <input type="email"
+                                   id="customerEmail"
+                                   name="customerEmail"
+                                   placeholder="example@email.com"
+                                   autocomplete="email"
+                                   aria-describedby="emailError"
+                                   required>
+
+                            <p class="field-error"
+                               id="emailError"></p>
+                        </div>
+
+                        <!-- Adventure Shortcuts -->
+                        <div class="form-group">
+
+                            <label>
+                                Adventure Package
+                                <span class="optional">
+                                    (Optional)
+                                </span>
+                            </label>
+
+                            
+<div class="package-grid">
+
+    <!-- Biolume Reef -->
+    <button type="button"
+            class="package-option"
+            data-name="Biolume Reef Discovery"
+            data-price="120.00"
+            aria-pressed="false">
+
+        <img src="image/biolume-reef.jpg"
+             alt=""
+             class="package-image">
+
+        <div class="package-info">
+            <strong>Biolume Reef</strong>
+            <span>RM120.00</span>
+        </div>
+    </button>
+
+    <!-- Moon Jelly -->
+    <button type="button"
+            class="package-option"
+            data-name="Moon Jelly Safari"
+            data-price="220.00"
+            aria-pressed="false">
+
+        <img src="image/moon-jelly.jpg"
+             alt=""
+             class="package-image">
+
+        <div class="package-info">
+            <strong>Moon Jelly</strong>
+            <span>RM220.00</span>
+        </div>
+    </button>
+
+    <!-- Atlantis Gate -->
+    <button type="button"
+            class="package-option"
+            data-name="Atlantis Gate Expedition"
+            data-price="380.00"
+            aria-pressed="false">
+
+        <img src="image/atlantis-gate.jpg"
+             alt=""
+             class="package-image">
+
+        <div class="package-info">
+            <strong>Atlantis Gate</strong>
+            <span>RM380.00</span>
+        </div>
+    </button>
+
+</div>
+
+
+                            <p class="field-hint">
+                                Select a package to fill the
+                                amount automatically, or enter
+                                your own amount below.
+                            </p>
+                        </div>
+
+                        <!-- Purchase Amount -->
+                        <div class="form-group">
+                            <label for="purchaseAmount">
+                                Purchase Amount (RM) *
+                            </label>
+
+                            <input type="text"
+                                   id="purchaseAmount"
+                                   name="purchaseAmount"
+                                   inputmode="decimal"
+                                   placeholder="e.g. 220.00"
+                                   aria-describedby="amountError"
+                                   required>
+
+                            <p class="field-error"
+                               id="amountError"></p>
+                        </div>
+
+                        <!-- Membership -->
+                        <fieldset class="membership-fieldset"
+                                  id="membershipGroup">
+
+                            <legend>
+                                Membership Level *
+                            </legend>
+
+                            <div class="membership-grid">
+
+                                <label class="membership-option">
+                                    <input type="radio"
+                                           name="membership"
+                                           value="seashell">
+
+                                    <span>Seashell Explorer</span>
+                                    <strong>0%</strong>
+                                </label>
+
+                                <label class="membership-option">
+                                    <input type="radio"
+                                           name="membership"
+                                           value="coral">
+
+                                    <span>Coral Voyager</span>
+                                    <strong>5%</strong>
+                                </label>
+
+                                <label class="membership-option">
+                                    <input type="radio"
+                                           name="membership"
+                                           value="pearl">
+
+                                    <span>Pearl Guardian</span>
+                                    <strong>10%</strong>
+                                </label>
+
+                                <label class="membership-option">
+                                    <input type="radio"
+                                           name="membership"
+                                           value="trident">
+
+                                    <span>Trident Elite</span>
+                                    <strong>15%</strong>
+                                </label>
+
+                            </div>
+
+                            <p class="field-error"
+                               id="membershipError"></p>
+                        </fieldset>
+
+                        <!-- Buttons -->
+                        <div class="form-actions">
+
+                            <button type="submit"
+                                    class="button button-primary">
+                                Calculate Total
+                            </button>
+
+                            <button type="reset"
+                                    class="button button-outline">
+                                Reset Form
+                            </button>
+
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Right: Result & Rules -->
+                <div class="kiosk-sidebar">
+
+                    <!-- Calculation Result -->
+                    <section class="result-card"
+                             id="resultCard"
+                             aria-live="polite"
+                             hidden>
+
+                        <span class="eyebrow">
+                            CALCULATION COMPLETE
+                        </span>
+
+                        <h2>Your Expedition Summary</h2>
+
+                        <div class="result-details">
+
+                            <p>
+                                Customer:
+                                <strong id="resultName"></strong>
+                            </p>
+
+                            <p>
+                                Email:
+                                <strong id="resultEmail"></strong>
+                            </p>
+
+                            <p id="adventureRow" hidden>
+                                Adventure:
+                                <strong id="resultAdventure"></strong>
+                            </p>
+
+                            <p>
+                                Membership:
+                                <strong id="resultMembership"></strong>
+                            </p>
+
+                        </div>
+
+                        <div class="receipt-line">
+                            <span>Original Amount</span>
+                            <strong id="resultOriginal"></strong>
+                        </div>
+
+                        <div class="receipt-line">
+                            <span>Discount Rate</span>
+                            <strong id="resultRate"></strong>
+                        </div>
+
+                        <div class="receipt-line">
+                            <span>Total Discount</span>
+                            <strong id="resultDiscount"></strong>
+                        </div>
+
+                        <div class="receipt-total">
+                            <span>Final Payable</span>
+                            <strong id="resultFinal"></strong>
+                        </div>
+
+                    </section>
+
+                    <!-- Membership Rules -->
+                    <section class="rules-card">
+
+                        <h2>Membership Benefits</h2>
+
+                        <p>
+                            Your membership determines
+                            your discount percentage.
+                        </p>
+
+                        <div class="rule-row">
+                            <span>Seashell Explorer</span>
+                            <strong>0%</strong>
+                        </div>
+
+                        <div class="rule-row">
+                            <span>Coral Voyager</span>
+                            <strong>5%</strong>
+                        </div>
+
+                        <div class="rule-row">
+                            <span>Pearl Guardian</span>
+                            <strong>10%</strong>
+                        </div>
+
+                        <div class="rule-row">
+                            <span>Trident Elite</span>
+                            <strong>15%</strong>
+                        </div>
+
+                        <div class="calculation-info">
+
+                            <h3>How It Works</h3>
+
+                            <p>
+                                Discount = Purchase Amount
+                                × Discount Rate
+                            </p>
+
+                            <p>
+                                Final Payable = Purchase
+                                Amount − Discount
+                            </p>
+
+                            <p>
+                                Maximum purchase:
+                                RM5,000.00
+                            </p>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <p>
+                ABYSSARIA — Discover the Wonders
+                Beneath Reality.
+            </p>
+
+            <p>
+                ICT600 Individual Assignment |
+                2024245088
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+/* ========================================
+   ABYSSARIA - SHARED DESIGN
+   Solid colours only; no gradients
+======================================== */
+
+:root {
+    --color-background: #061826;
+    --color-secondary: #0B2D42;
+    --color-card: #12364B;
+    --color-accent: #37E0D0;
+    --color-coral: #FF987A;
+    --color-text: #F5FAFC;
+    --color-muted: #A9C3D1;
+    --color-border: #335367;
+    --font-heading: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+}
+
+/* Base and navigation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.7;
+}
+
+main { flex: 1; }
+h1, h2, h3 { font-family: var(--font-heading); line-height: 1.3; }
+p { color: var(--color-muted); margin-bottom: 15px; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.container { width: min(90%, 1200px); margin: 0 auto; }
+.content-section { padding: 80px 0; }
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.site-header {
+    background-color: var(--color-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 0;
+}
+.logo {
+    color: var(--color-accent);
+    font: 700 1.5rem var(--font-heading);
+}
+.main-nav { display: flex; flex-wrap: wrap; gap: 28px; }
+.main-nav a { font-size: 0.95rem; font-weight: 500; }
+.main-nav a:hover,
+.main-nav a[aria-current="page"] { color: var(--color-accent); }
+
+/* ========================================
+   PAGE 1 - FOUNDER
+======================================== */
+
+.founder-heading { text-align: center; margin-bottom: 40px; }
+.founder-heading h1 {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 12px;
+}
+.founder-card {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+}
+.founder-photo {
+    position: relative;
+    flex: 0 0 320px;
+}
+.founder-image {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+}
+.founder-details { flex: 1; min-width: 0; }
+.founder-details h2 { font-size: 1.8rem; margin-bottom: 8px; }
+.founder-details h3 { font-size: 1.2rem; margin-bottom: 15px; }
+.founder-role { color: var(--color-accent); font-weight: 600; }
+.founder-info {
+    margin: 25px 0;
+    padding: 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+}
+.founder-info p { font-size: 0.9rem; margin-bottom: 7px; }
+.founder-info p:last-child { margin-bottom: 0; }
+.founder-info strong { color: var(--color-text); }
+
+/* ========================================
+   PAGE 2 - INTERACTIVE KIOSK
+======================================== */
+
+.kiosk-intro {
+    padding: 80px 0;
+    background-color: var(--color-secondary);
+}
+.kiosk-intro h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 15px;
+}
+.kiosk-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: start;
+    gap: 25px;
+}
+.calculator-card, .rules-card, .result-card {
+    padding: 30px;
+    background-color: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+}
+.calculator-card h2, .rules-card h2, .result-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+.kiosk-sidebar { display: flex; flex-direction: column; gap: 25px; }
+
+/* Form fields and validation */
+.form-group { margin-bottom: 24px; }
+.form-group > label, .membership-fieldset legend {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.form-group input {
+    display: block;
+    width: 100%;
+    padding: 13px 15px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font: 0.95rem var(--font-body);
+}
+.form-group input::placeholder { color: var(--color-muted); }
+.form-group input:focus {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+}
+.form-group input[aria-invalid="true"] { border-color: var(--color-coral); }
+.optional, .field-hint {
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+.field-hint { margin: 10px 0 0; }
+.field-error { color: var(--color-coral); font-size: 0.8rem; margin: 5px 0 0; }
+
+/* Adventure package cards with images */
+.package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+.package-option {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    text-align: center;
+    cursor: pointer;
+}
+.package-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+.package-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    padding: 15px 8px;
+}
+.package-info strong { color: var(--color-text); font-size: 0.85rem; }
+.package-info span {
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.package-option:hover, .package-option.is-selected { border-color: var(--color-accent); }
+.package-option.is-selected { background-color: var(--color-secondary); }
+
+/* Membership choices */
+.membership-fieldset { min-width: 0; margin-bottom: 25px; border: 0; }
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+.membership-option {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+.membership-option input { accent-color: var(--color-accent); }
+.membership-option strong { margin-left: auto; color: var(--color-accent); }
+.membership-option:focus-within,
+.membership-option:has(input:checked) { border-color: var(--color-accent); }
+.membership-fieldset.is-invalid .membership-grid {
+    outline: 1px solid var(--color-coral);
+    border-radius: 10px;
+}
+
+/* Calculate / Reset buttons */
+.form-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.button {
+    display: inline-block;
+    padding: 13px 20px;
+    border-radius: 10px;
+    font: 600 0.9rem var(--font-body);
+    text-align: center;
+    cursor: pointer;
+}
+.button-primary {
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    border: 1px solid var(--color-accent);
+}
+.button-primary:hover { background-color: #75F0E4; }
+.button-outline {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+.button-outline:hover { border-color: var(--color-accent); }
+
+/* Membership rules */
+.rule-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.9rem;
+}
+.rule-row strong { color: var(--color-accent); }
+.calculation-info { margin-top: 25px; }
+.calculation-info h3 { font-size: 1rem; margin-bottom: 12px; }
+.calculation-info p { font-size: 0.85rem; margin-bottom: 10px; }
+
+/* Receipt */
+[hidden] { display: none !important; }
+.result-details {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.result-details p { font-size: 0.85rem; overflow-wrap: anywhere; }
+.result-details strong { display: block; color: var(--color-text); }
+.receipt-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 0.9rem;
+}
+.receipt-line strong { color: var(--color-text); }
+.receipt-total {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 20px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+}
+.receipt-total strong {
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-size: 2rem;
+}
+
+/* Footer */
+.site-footer {
+    padding: 30px 0;
+    background-color: #04111C;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+.site-footer p { font-size: 0.85rem; margin-bottom: 5px; }
+
+/* Responsive layouts */
+@media (max-width: 900px) {
+    .kiosk-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .nav-container { flex-direction: column; text-align: center; }
+    .main-nav { justify-content: center; gap: 20px; }
+    .content-section { padding: 55px 0; }
+
+    .founder-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+        gap: 25px;
+    }
+    .founder-photo {
+        flex: none;
+        width: min(100%, 320px);
+        height: 400px;
+    }
+    .founder-details { width: 100%; }
+    .founder-details h2 { font-size: 1.5rem; }
+    .kiosk-intro { padding: 60px 0; }
+}
+
+@media (max-width: 600px) {
+    .calculator-card, .rules-card, .result-card { padding: 22px; }
+    .package-grid, .membership-grid { grid-template-columns: 1fr; }
+    .form-actions { flex-direction: column; }
+    .form-actions .button { width: 100%; }
+}
